@@ -1,0 +1,876 @@
+/* Navbar Grundstil */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #baadad;
+}
+.main{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+
+
+
+
+/* =======================================
+   NAVBAR BASIS
+======================================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #007BFF, #00C6FF);
+    padding: 0 20px;
+    height: 150px;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    text-wrap: nowrap;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.5);
+    z-index: 103;
+}
+
+/* Logo */
+.navbar img {
+    height: 100%;
+    width: auto;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+}
+
+/* Schrift neben Logo */
+.logoschrift {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2.5em;
+    height: 80%;
+    width: 40%;
+    left: 250px;
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 1000px) {
+    .navbar {
+        padding: 0 10px;
+    }
+
+    .navbar img {
+        height: 60%;
+    }
+
+    .logoschrift {
+        left: 150px;
+        font-size: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* =======================================
+   HAMBURGER BUTTON
+======================================= */
+.hamburger {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    z-index: 105; /* über overlay, bleibt klickbar */
+    transition: transform 0.3s ease;
+}
+
+.hamburger .bar {
+    width: 35px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    position: absolute;
+}
+
+.hamburger .bar:nth-child(1) { top: 12px; }
+.hamburger .bar:nth-child(2) { top: 23px; }
+.hamburger .bar:nth-child(3) { top: 34px; }
+
+/* Animation zu X */
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg);
+    top: 23px;
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 23px;
+}
+
+/* =======================================
+   SIDEMENU (Mobile Navigation)
+======================================= */
+.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 150px; /* direkt unter der Navbar */
+    right: -50%;
+    height: calc(100vh - 150px);
+    width: 50%;
+    background-color: #ADD8E6;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.3);
+    transition: right 0.4s ease;
+    z-index: 104;
+    overflow-y: auto;
+}
+
+.nav-menu.active {
+    right: 0;
+}
+
+.nav-menu li {
+    width: 100%;
+    border-bottom: 1px solid #87CEFA;
+}
+
+.nav-menu li:last-child {
+    border-bottom: none;
+}
+
+.nav-menu li a {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    color: #333;
+    width: 100%;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    background-color: #3785b6;
+    color: white;
+}
+
+/* =======================================
+   OVERLAY (Hintergrund-Verdunkelung)
+======================================= */
+.overlay {
+    position: fixed;
+    top: 150px; /* unter der Navbar */
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 150px);
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 103;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* =======================================
+   DESKTOP ANSICHT
+======================================= */
+@media (min-width: 1000px) {
+    .hamburger {
+        display: none;
+    }
+
+    .overlay {
+        display: none !important;
+    }
+
+    .nav-menu {
+        position: static;
+        height: auto;
+        width: auto;
+        flex-direction: row;
+        background: none;
+        box-shadow: none;
+        right: auto;
+        overflow: visible;
+        transition: none;
+    }
+
+    .nav-menu li {
+        border: none;
+    }
+
+    .nav-menu li a {
+        padding: 0 15px;
+        color: #fff;
+    }
+
+    .nav-menu li a:hover {
+        background: rgba(255, 255, 255, 0.2);
+        color: #fff;
+    }
+}
+
+
+
+.headerimgcontainer{
+   z-index: 99;
+   position: relative;
+   margin-top: 7em;
+}
+.headerimgcontainer img{
+    width: 100%;
+    height: auto;
+    position: sticky;
+}
+@media (max-width:1400px){
+
+    .headerimgcontainer{
+      margin-top: 7em;
+    }
+
+}
+@media (max-width:1000px){
+
+  .headerimgcontainer{
+
+    margin-top: 9em;
+  }
+}
+
+.textfeld1container{
+display: flex;
+flex-direction: row;
+height: 90vh;
+width: 100%;
+text-align: center;
+justify-content: center;
+margin-top: 4em;
+background-color: #aa9e9e;
+}
+.textfeld1{
+  display: flex;
+    height: 100%;
+    width: 60%;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 80ch; /* 40 Zeichen pro Zeile – angenehm zu lesen */
+
+}
+.textfeld1 h1{
+  margin-top: 10px;
+ font-size: 4em;
+  font-weight: 900;
+  color: #007bff; /* kräftiges Mittelblau */
+
+  /* dezenter dunkler Verlauf über Farbton, sorgt für Tiefe */
+  background: linear-gradient(180deg, #0090ff 0%, #0047b3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* knackiger, klarer Schatten */
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.35);
+}
+.textfeld1text2{
+font-size: 2em;
+color: white;
+margin: 0 1em 3em 1em;
+
+
+}
+.textfeld1hiddenimg{
+
+  display: none;
+}
+.textfeld1img{
+  height: 100%;
+  width: 40%;
+}
+.textfeld1img img{
+  width: 100%;
+  height: 100%;
+}
+@media (max-width:1000px) {
+
+  .textfeld1container{
+    height: auto;
+     display: flex;
+  }
+  .textfeld1{
+    flex-direction: column;
+    position: relative;
+    justify-content: start;
+    align-items: start;
+    width: 100%;
+    text-align: justify;
+    text-align-last: left;
+  max-width: 40ch; /* 40 Zeichen pro Zeile – angenehm zu lesen */
+
+  }
+  .textfeld1 h1{
+    font-size: 3em;
+  }
+  .textfeld1hiddenimg{
+    position: relative;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: auto; /* schiebt das Bild ans Ende der Spalte */
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .textfeld1img{
+    display: none;
+    margin-right: 20px;
+  
+  }
+}
+
+
+
+.backgroundimg{
+background-image: url(img/csm_autoteile-centrum-lauenburg-sortiment5_85faab30ac.jpg);
+margin-top: 5em;
+height: 50%;
+}
+.backgroundimgtopper{
+  
+  position: relative;      /* Position relativ zum übergeordneten Container */
+  top: 0;
+  left: 0;
+  width: 100%;             /* füllt die gesamte Breite */
+  height: 10%;            /* füllt die gesamte Höhe */
+  background-color: rgba(255, 255, 255, 0.3); /* Weiß mit 70% Deckkraft */
+  display: flex;           /* optional, um Inhalt zu zentrieren */
+  justify-content: center; /* horizontal zentrieren */
+  align-items: center;     /* vertikal zentrieren */
+  pointer-events: auto;    /* optional, lässt Klicks durch */
+
+}
+.container {
+  position: relative;
+  margin: 3em auto 50px auto;
+  width: 95%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;           /* Zeilen umbrechen auf kleinen Bildschirmen */
+  justify-content: center;
+  gap: 2em;                  /* Abstand zwischen den Quadraten */
+  overflow: hidden;
+  padding: 1em;
+  gap: 5em;
+  z-index: 100;
+}
+
+.square {
+  flex: 1 1 200px;           /* flexibel, min 200px, wächst nach Bedarf */
+  max-width: 300px;           /* maximale Breite */
+  aspect-ratio: 1 / 1;       /* quadratisch */
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+  
+
+  /* LED-Rand-Effekt */
+  animation: led-border-glow 4s linear infinite;
+  box-shadow:
+    0 0 12px 4px red,
+    0 0 18px 6px orange,
+    0 0 24px 10px yellow;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;          /* alles außerhalb der Box wird abgeschnitten */
+}
+
+.square img {
+  width: 100%;               /* Bild füllt die Box komplett aus */
+  height: 100%;              /* Höhe passt sich der Box an */
+  object-fit: cover;         /* Bild wird zugeschnitten, um Box zu füllen */
+  border-radius: 8px;        /* optional: abgerundete Ecken */
+}
+
+/* LED Animation */
+@keyframes led-border-glow {
+  0% {
+    box-shadow: 0 0 12px 4px red, 0 0 18px 6px orange, 0 0 24px 10px yellow;
+  }
+  25% {
+    box-shadow: 0 0 12px 4px green, 0 0 18px 6px cyan, 0 0 24px 10px blue;
+  }
+  50% {
+    box-shadow: 0 0 12px 4px blue, 0 0 18px 6px indigo, 0 0 24px 10px violet;
+  }
+  75% {
+    box-shadow: 0 0 12px 4px pink, 0 0 18px 6px red, 0 0 24px 10px orange;
+  }
+  100% {
+    box-shadow: 0 0 12px 4px red, 0 0 18px 6px orange, 0 0 24px 10px yellow;
+  }
+}
+
+/* Media Queries für kleine Bildschirme */
+@media (max-width: 1000px) {
+  .container {
+    gap: 1em;
+  }
+  .square {
+    flex: 1 1 150px;          /* kleinere Quadrate auf Mobile */
+  }
+}
+
+
+
+.textfeld2container {
+  display: flex;
+  flex-direction: row;
+  height: 90vh;
+  width: 100%;
+  text-align: center;
+  justify-content: flex-start; /* <--- statt center */
+  align-items: center;         /* optional für vertikale Ausrichtung */
+  margin-top: 4em;
+  background-color: #aa9e9e;
+  gap: 7em;
+}
+
+.textfeld2 {
+  display: flex;
+  height: 80%;
+  width: 40%;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 80ch;
+  
+}
+
+.textfeld2 h1 {
+  margin-top: 10px;
+  font-size: 4em;
+  font-weight: 900;
+  color: #007bff;
+  background: linear-gradient(180deg, #0090ff 0%, #0047b3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.35);
+  justify-content: center;
+  align-items: center;
+}
+
+.textfeld2img {
+  height: 100%;
+  width: 40%;
+  position: relative;
+  display: flex;
+  justify-content: flex-start; /* Bild links ausrichten */
+  align-items: flex-start;
+  margin-left: 3em;     
+  margin-top: auto;
+  margin-bottom: 30px;
+}
+
+.textfeld2img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Bild, das nur auf Mobil angezeigt wird */
+.textfeld2hiddenimg {
+  display: none;
+}
+
+/* ---------- MEDIA QUERY ---------- */
+@media (max-width: 1000px) {
+  .textfeld2container {
+    flex-direction: column;
+    height: auto;
+    gap: 3em;
+
+  }
+
+  .textfeld2 {
+    order: 1; /* Text zuerst */
+    flex-direction: column;
+    position: relative;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    text-align: justify;
+    text-align-last: left;
+    max-width: 40ch;
+    padding: 20px;
+    margin-top: 2em;
+  }
+
+  .textfeld2 h1 {
+    font-size: 3em;
+  }
+
+  /* Desktop-Bild ausblenden */
+  .textfeld2img {
+    display: none;
+  }
+
+  /* Mobile-Bild aktivieren und unter den Text setzen */
+  .textfeld2hiddenimg {
+    order: 2; /* Bild nach Text */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  .textfeld2hiddenimg img {
+    width: 70%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+
+
+
+
+
+
+.textfeld3container{
+display: flex;
+flex-direction: row;
+height: 600px;
+width: 100%;
+text-align: center;
+justify-content: center;
+margin-top: 4em;
+background: linear-gradient(to right, #007BFF, #00C6FF);
+}
+.textfeld3 {
+  width: 60%;
+  height: 85%;
+  padding: 2em;
+  color: #fff;
+  background: transparent;
+  overflow: hidden;
+  
+}
+
+.textfeld3 h1 {
+  text-align: center;
+  margin-bottom: 1em;
+  margin-top: 0;
+  font-size: 3em;
+}
+
+.kontakt-liste {
+  list-style: none;  /* entfernt Standard-Punkte */
+  padding: 0;
+  margin: 0;
+}
+
+.kontakt-liste li {
+  display: flex;
+  align-items: center;
+  font-size: 2em;
+  margin-bottom: 0.8em;
+  align-items: flex-start; /* Text richtet sich am oberen Rand aus */
+  gap: 10px;               /* Abstand zwischen Icon und Text */
+}
+
+.kontakt-liste .icon {
+  width: 1.5em;
+  text-align: center;
+  margin-right: 0.5em;
+  color: #fff; /* Farbe der Icons */
+}
+
+.kontakt-liste i {
+  font-size: 1.2em;
+}
+
+@media (max-width: 1350px) {
+  .textfeld3 {
+    width: 90%;
+    padding: 1em;
+  }
+
+  .kontakt-liste li {
+    font-size: 1.4em;
+    gap: 8px;
+  }
+
+  
+}
+
+
+/* Container für das Formular */
+.kontaktformular {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Überschrift */
+.kontaktformular h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Label für Eingabefelder */
+.kontaktformular label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* Eingabefelder und Textarea */
+.kontaktformular input[type="text"], .kontaktformular textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+/* Eingabefelder bei Focus */
+.kontaktformular input[type="text"]:focus, .kontaktformular textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+
+/* Absenden-Button */
+.kontaktformular input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+/* Hover-Effekt für den Absenden-Button */
+.kontaktformular input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Styling für kleine Abstände */
+.kontaktformular p {
+    margin: 10px 0;
+}
+
+@media (max-width:1000px) {
+
+  .textfeld3 {
+
+    display: none;
+  }
+  .kontaktformular{
+    width: 80%;
+  }
+
+  
+}
+
+
+
+
+
+.fussleiste{
+  position: relative;
+  display: flex;
+
+  margin-top: 20%;
+  height: 50vh;
+  width: 100%;
+}
+.fussleisteblau{
+  position: absolute;
+background-color: #007bff;
+height: 15%;
+width: 100%;
+margin-bottom: 0;
+
+}
+.fussleistetopper{
+position: relative;
+margin-top: auto;
+background-image: url(img/csm_autoteile-centrum-lauenburg-sortiment5_85faab30ac.jpg);
+height: 100%;
+width: 100%;
+}
+.fussleistegrau{
+ background: linear-gradient(to right, #333, #4b4b4b, #373535);
+ height: 85%;
+ width: 100%;
+ margin-top: auto;
+ 
+}
+
+
+
+
+
+
+
+/* Cookiebanner */
+
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 20px;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Inhalt des Banners */
+.cookie-content {
+  max-width: 960px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Text für das Banner */
+.cookie-text {
+  font-size: 14px;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+/* Button-Stile */
+.cookie-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px 5px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cookie-button:hover {
+  background-color: #0056b3;
+}
+
+/* Buttons für Einstellungen und Akzeptieren */
+.accept-all {
+  background-color: #28a745;
+}
+
+.accept-all:hover {
+  background-color: #218838;
+}
+
+.settings {
+  background-color: #6c757d;
+}
+
+.settings:hover {
+  background-color: #5a6268;
+}
+
+/* Checkboxen für Kategorien */
+.cookie-categories {
+  margin-top: 20px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.cookie-footer {
+  margin-top: 15px;
+  font-size: 12px;
+}
+
+.privacy-link a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.privacy-link a:hover {
+  text-decoration: underline;
+}
+
+/* Medien-Query für mobile Geräte */
+@media screen and (max-width: 768px) {
+  .cookie-banner {
+    padding: 15px;
+  }
+
+  .cookie-text {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .cookie-button {
+    padding: 8px 15px;
+    font-size: 13px;
+  }
+
+  .cookie-categories {
+    font-size: 12px;
+  }
+
+  .category {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Cookiebanner Ende */
