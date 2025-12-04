@@ -1,0 +1,1005 @@
+/* Navbar Grundstil */
+html {
+  scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #baadad;
+}
+.main{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+
+
+
+
+/* =======================================
+   NAVBAR BASIS
+======================================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #007BFF, #00C6FF);
+    padding: 0 20px;
+    height: 150px;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    text-wrap: nowrap;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.5);
+    z-index: 105;
+}
+
+/* Logo */
+.navbar img {
+    height: 100%;
+    width: auto;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+}
+
+/* Schrift neben Logo */
+.logoschrift {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2.5em;
+    height: 80%;
+    width: 40%;
+    left: 250px;
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 1000px) {
+    .navbar {
+        padding: 0 10px;
+        height: 100px;
+    }
+
+    .navbar img {
+        height: 60%;
+    }
+
+    .logoschrift {
+        left: 150px;
+        font-size: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* =======================================
+   HAMBURGER BUTTON
+======================================= */
+.hamburger {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    z-index: 105; /* über overlay, bleibt klickbar */
+    transition: transform 0.3s ease;
+    
+}
+
+.hamburger .bar {
+    width: 35px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    position: absolute;
+}
+
+.hamburger .bar:nth-child(1) { top: 12px; }
+.hamburger .bar:nth-child(2) { top: 23px; }
+.hamburger .bar:nth-child(3) { top: 34px; }
+
+/* Animation zu X */
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg);
+    top: 23px;
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 23px;
+}
+
+/* =======================================
+   SIDEMENU (Mobile Navigation)
+======================================= */
+.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 150px; /* direkt unter der Navbar */
+    right: -50%;
+    height: calc(100vh - 150px);
+    width: 50%;
+    background-color: #ADD8E6;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.3);
+    transition: right 0.4s ease;
+    z-index: 104;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.nav-menu.active {
+    right: 0;
+}
+
+.nav-menu li {
+    width: 100%;
+    border-bottom: 1px solid #87CEFA;
+}
+
+.nav-menu li:last-child {
+    border-bottom: none;
+}
+
+.nav-menu li a {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    color: #333;
+    width: 100%;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    background-color: #3785b6;
+    color: white;
+}
+
+/* =======================================
+   OVERLAY (Hintergrund-Verdunkelung)
+======================================= */
+.overlay {
+    position: fixed;
+    top: 150px; /* unter der Navbar */
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 150px);
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 103;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+@media (max-width: 1000px) {
+
+.overlay {
+  top: 100px
+}
+.nav-menu {
+  top: 100px;
+}
+
+}
+
+/* =======================================
+   DESKTOP ANSICHT
+======================================= */
+@media (min-width: 1000px) {
+    .hamburger {
+        display: none;
+    }
+
+    .overlay {
+        display: none !important;
+    }
+
+    .nav-menu {
+        position: static;
+        height: auto;
+        width: auto;
+        flex-direction: row;
+        background: none;
+        box-shadow: none;
+        right: auto;
+        overflow: visible;
+        transition: none;
+    }
+
+    .nav-menu li {
+        border: none;
+    }
+
+    .nav-menu li a {
+        padding: 0 15px;
+        color: #fff;
+    }
+
+    .nav-menu li a:hover {
+        background: rgba(255, 255, 255, 0.2);
+        color: #fff;
+    }
+}
+
+
+
+.headerimgcontainer{
+   z-index: 99;
+   position: relative;
+   margin-top: 7em;
+   display: flex;
+}
+.headerimgcontainer img{
+    width: 100%;
+    height: auto;
+    position: relative;
+
+}
+@media (max-width:1400px){
+
+    .headerimgcontainer{
+      margin-top: 7em;
+    }
+
+}
+@media (max-width:1000px){
+
+  .headerimgcontainer{
+
+    margin-top: 6em;
+  }
+}
+
+.textfeld1container {
+  display: flex;
+  flex-direction: row;
+  height: 90vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  background-color: #aa9e9e;
+  padding: 2rem; /* Abstand nach innen */
+  box-sizing: border-box;
+}
+
+.textfeld1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+  max-width: 70ch;     /* Saubere Textbreite */
+  gap: 1rem;           /* Abstand zwischen Elementen */
+}
+
+.textfeld1 h1 {
+  margin: 0;
+  font-size: 3.5em;
+  font-weight: 900;
+  background: linear-gradient(180deg, #0090ff 0%, #0047b3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.35);
+}
+
+.textfeld1text2 {
+  font-size: 1.4em;
+  line-height: 1.5;  /* Bessere Lesbarkeit */
+  color: white;
+}
+
+.textfeld1img {
+  width: 40%;
+}
+
+.textfeld1img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* verhindert Verzerrungen */
+}
+.textfeld1hiddenimg {
+  display: none;
+}
+
+/* -----------------------------------------
+   RESPONSIVE
+------------------------------------------ */
+@media (max-width: 1000px) {
+
+  .textfeld1container {
+    flex-direction: column;
+    height: auto;
+    padding: 1.5rem;
+  }
+
+  .textfeld1 {
+    width: 100%;
+    max-width: 55ch; /* etwas schmaler für mobile */
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .textfeld1 h1 {
+    font-size: 2.3em;
+  }
+
+  .textfeld1text2 {
+    font-size: 1.2em;
+  }
+
+  .textfeld1img {
+    display: none;
+    width: 80%;
+  }
+
+  .textfeld1hiddenimg {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 1.5rem;
+    overflow-x: hidden;
+  }
+}
+
+
+
+
+
+
+
+
+/* Bewegende Tiles */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+.wrapper {
+  width: 90%;
+  max-width: 1536px;
+  margin-inline: auto;
+  position: relative;
+  height: 250px;
+  margin-top: 5rem;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0)
+  );
+}
+
+@keyframes scrollLeft {
+  to {
+    left: -200px;
+  }
+}
+
+.item {
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  border-radius: 6px;
+  position: absolute;
+  margin-top: 15px;
+  left: max(calc(200px * 8), 100%);
+  animation-name: scrollLeft;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+   transition: transform 0.3s ease;
+}
+
+.item:hover {
+  transform: translateY(-10px); /* <— Bewege um 100px hoch */
+}
+
+.item1 {
+  animation-delay: calc(30s / 8 * (8 - 1) * -1);
+  background-image: url("img/mann-filter-logo-png_seeklogo-217639.png");
+  background-size: cover;
+}
+
+.item2 {
+  animation-delay: calc(30s / 8 * (8 - 2) * -1);
+  background-image: url(img/liqui-moly-logo-png_seeklogo-84602.png);
+  background-size: cover;
+  background-position: center;
+  
+}
+
+.item3 {
+  animation-delay: calc(30s / 8 * (8 - 3) * -1);
+  background-image: url(img/febi-bilstein-motoroel-motorenoel.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.item4 {
+  animation-delay: calc(30s / 8 * (8 - 4) * -1);
+  background-image: url(img/1200x630wa.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.item5 {
+  animation-delay: calc(30s / 8 * (8 - 5) * -1);
+  background-image: url(img/Banner_Logo_white.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.item6 {
+  animation-delay: calc(30s / 8 * (8 - 6) * -1);
+  background-image: url(img/images.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.item7 {
+  animation-delay: calc(30s / 8 * (8 - 7) * -1);
+  background-image: url(img/lg_panther.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.item8 {
+  animation-delay: calc(30s / 8 * (8 - 8) * -1);
+  background-image: url(img/sonax-vector-logo-2022-small.png);
+  background-size: cover;
+  background-position: center;
+}
+
+
+/* Bewegende Tiles Ende */
+
+
+
+
+
+
+
+
+.textfeld2container {
+  display: flex;
+  flex-direction: row;
+  height: 90vh;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 4em;
+  background-color: #aa9e9e;
+  padding: 2rem;        /* mehr Innenabstand für Raum */
+  gap: 5rem;            /* harmonischer als 7em */
+  box-sizing: border-box;
+}
+
+/* ------------------------------------------
+   TEXT
+------------------------------------------- */
+.textfeld2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 40%;
+  height: auto;
+  max-width: 70ch;        /* saubere Zeilenbreite */
+  gap: 1rem;              /* Abstand zwischen Textblöcken */
+}
+
+.textfeld2 h1 {
+  margin: 0;
+  font-size: 3.5em;
+  font-weight: 900;
+  background: linear-gradient(180deg, #0090ff 0%, #0047b3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.35);
+}
+
+/* ------------------------------------------
+   DESKTOP-BILD
+------------------------------------------- */
+.textfeld2img {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.textfeld2img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* verhindert Verzerrungen */
+}
+
+/* Bild nur für Mobil */
+.textfeld2hiddenimg {
+  display: none;
+}
+
+/* ------------------------------------------
+   MEDIA QUERIES
+------------------------------------------- */
+@media (max-width: 1000px) {
+
+  .textfeld2container {
+    flex-direction: column;
+    height: auto;
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+
+  .textfeld2 {
+    width: 100%;
+    max-width: 55ch;            /* mobile: etwas schmalere Zeilenlänge */
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    padding: 0.5rem;
+  }
+
+  .textfeld2 h1 {
+    font-size: 2.3em;
+  }
+
+  /* Desktop-Bild ausblenden */
+  .textfeld2img {
+    display: none;
+  }
+
+  /* Mobile-Bild aktivieren */
+  .textfeld2hiddenimg {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .textfeld2hiddenimg img {
+    width: 75%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+
+#kontakt{
+
+  margin-bottom: 30%;
+  position: absolute;
+}
+@media (max-width: 1000px) {
+  #kontakt{
+  margin-bottom: 15%;
+  }
+}
+
+
+
+
+.textfeld3container{
+display: flex;
+flex-direction: row;
+height: 600px;
+width: 100%;
+text-align: center;
+justify-content: center;
+margin-top: 8em;
+background: linear-gradient(to right, #007BFF, #00C6FF);
+}
+.textfeld3 {
+  width: 60%;
+  height: 85%;
+  padding: 2em;
+  color: #fff;
+  background: transparent;
+  overflow: hidden;
+  
+}
+
+.textfeld3 h1 {
+  text-align: center;
+  margin-bottom: 1em;
+  margin-top: 0;
+  font-size: 3em;
+}
+
+.kontakt-liste {
+  list-style: none;  /* entfernt Standard-Punkte */
+  padding: 0;
+  margin: 0;
+}
+
+.kontakt-liste li {
+  display: flex;
+  align-items: center;
+  font-size: 2em;
+  margin-bottom: 0.8em;
+  align-items: flex-start; /* Text richtet sich am oberen Rand aus */
+  gap: 10px;               /* Abstand zwischen Icon und Text */
+}
+
+.kontakt-liste .icon {
+  width: 1.5em;
+  text-align: center;
+  margin-right: 0.5em;
+  color: #fff; /* Farbe der Icons */
+}
+
+.kontakt-liste i {
+  font-size: 1.2em;
+}
+
+@media (max-width: 1350px) {
+  .textfeld3 {
+    width: 90%;
+    padding: 1em;
+  }
+
+  .kontakt-liste li {
+    font-size: 1.4em;
+    gap: 8px;
+  }
+
+  
+}
+
+
+/* Container für das Formular */
+.kontaktformular {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Überschrift */
+.kontaktformular h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Label für Eingabefelder */
+.kontaktformular label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* Eingabefelder und Textarea */
+.kontaktformular input[type="text"], .kontaktformular textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+/* Eingabefelder bei Focus */
+.kontaktformular input[type="text"]:focus, .kontaktformular textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+
+/* Absenden-Button */
+.kontaktformular input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+/* Hover-Effekt für den Absenden-Button */
+.kontaktformular input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Styling für kleine Abstände */
+.kontaktformular p {
+    margin: 10px 0;
+}
+
+@media (max-width:1000px) {
+
+  .textfeld3 {
+
+    display: none;
+  }
+  .kontaktformular{
+    width: 80%;
+  }
+
+  
+}
+
+
+
+
+
+/* --- Hauptcontainer --- */
+.fussleiste{
+  width: 100%;
+  height: 50vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Blau */
+.fussleistetopper{
+  height: 5%;
+  background-color: rgb(236, 230, 230);
+  width: 100%;
+}
+
+/* Grauer Bereich */
+.fussleistegrau{
+  background: linear-gradient(to right, #333, #4b4b4b, #373535);
+  height: 95%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+/* Inhalt Container */
+.footer-content{
+  width: 90%;
+  max-width: 1400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  
+}
+
+/* --- IFRAME --- */
+.footer-iframe{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-iframe iframe{
+  width: 100%;
+  height: 250px;
+  border-radius: 8px;
+}
+
+/* --- LINKS --- */
+.footer-links{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.footer-links a{
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  position: relative;
+  z-index: 50;
+}
+
+.footer-links a:hover{
+  text-decoration: underline;
+}
+
+
+/* --- RESPONSIVE unter 1000px --- */
+@media (max-width: 1000px) {
+
+  .footer-content{
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-links{
+    flex-direction: row;
+    gap: 2rem;
+    margin-top: 1em;
+  }
+
+  .footer-iframe iframe{
+    height: 200px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Cookiebanner */
+
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 20px;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Inhalt des Banners */
+.cookie-content {
+  max-width: 960px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Text für das Banner */
+.cookie-text {
+  font-size: 14px;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+/* Button-Stile */
+.cookie-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px 5px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cookie-button:hover {
+  background-color: #0056b3;
+}
+
+/* Buttons für Einstellungen und Akzeptieren */
+.accept-all {
+  background-color: #28a745;
+}
+
+.accept-all:hover {
+  background-color: #218838;
+}
+
+.settings {
+  background-color: #6c757d;
+}
+
+.settings:hover {
+  background-color: #5a6268;
+}
+
+/* Checkboxen für Kategorien */
+.cookie-categories {
+  margin-top: 20px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.cookie-footer {
+  margin-top: 15px;
+  font-size: 12px;
+}
+
+.privacy-link a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.privacy-link a:hover {
+  text-decoration: underline;
+}
+
+/* Medien-Query für mobile Geräte */
+@media screen and (max-width: 768px) {
+  .cookie-banner {
+    padding: 15px;
+  }
+
+  .cookie-text {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .cookie-button {
+    padding: 8px 15px;
+    font-size: 13px;
+  }
+
+  .cookie-categories {
+    font-size: 12px;
+  }
+
+  .category {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Cookiebanner Ende */
